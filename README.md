@@ -1,14 +1,16 @@
 
 ## users
 
-|Column         |Type           |Options             |
-|---------------|---------------|--------------------|
-|nickname       |string         |null: false         |
-|email          |string         |null: false         |
-|password       |string         |null: false         |
-|名前（全角）     |text           |null: false         |
-|名前（カナ）     |text           |null: false         |
-|生年月日        |text           |null: false         |
+|Column             |Type           |Options             |
+|-------------------|---------------|--------------------|
+|nickname           |string         |null: false         |
+|email              |string         |null: false         |
+|encrypted_password |string         |null: false         |
+|first_name         |string         |null: false         |
+|last_name          |string         |null: false         |
+|first_name_kana    |string         |null: false         |
+|last_name_kana     |string         |null: false         |
+|birthday           |date           |null: false         |
 
 
 ### Association
@@ -19,48 +21,56 @@
 
 ## items
 
-|Column         |Type           |Options                        |
-|---------------|---------------|-------------------------------|
-|商品名          |text           |null: false                    |
-|商品説明        |text           |null: false                    |
-|商品状態        |text           |null: false                    |
-|配送料の負担     |text           |null: false                    |
-|発送元の地域     |text           |null: false                    |
-|発送までの日数    |text           |null: false                    |
-|購入価格         |text           |null: false                    |
-|userid         |reference型     |null: false, foreign_key: true |
+|Column                 |Type             |Options                        |
+|-----------------------|-----------------|-------------------------------|
+|product_name           |string           |null: false                    |
+|description_of_item    |text             |null: false                    |
+|category               |collection_select|null: false                    |
+|product_status         |collection_select|null: false                    |
+|shipping_fee_burden    |collection_select|null: false                    |
+|shipment_source        |collection_select|null: false                    |
+|days_to_ship           |collection_select|null: false                    |
+|price                  |string           |null: false                    |
+|user                   |reference        |null: false, foreign_key: true |
 
 ### Association
 - has_many :users
-- has_one  :transactions
+- has_one  :transaction
 - has_many :comments
 
 
 ## transactions
 
-|Column                 |Type           |Options                          |
-|-----------------------|---------------|---------------------------------|
-|クレジットカード情報       |integer        |null: false                     |
-|郵便番号                 |text           |null: false                     |
-|都道府県                 |text           |null: false                     |
-|市区町村                 |text           |null: false                     |
-|番地                    |text           |null: false                     |
-|建物名                  |text            |null: false                    |
-|電話番号                |text            |null: false                    |
-|userid                 |reference       |null: false, foreign_key: true |
-|itemsid                |reference       |null: false, foreign_key: true |
+|Column                 |Type              |Options                        |
+|-----------------------|------------------|-------------------------------|
+|user                   |reference         |null: false, foreign_key: true |
+|items                  |reference         |null: false, foreign_key: true |
 
 ### Association
-- has_many :users
-- has_one  :items
+- belongs_to :users
+- belongs_to :items
+
+## addresses
+
+|-----------------------|------------------|-------------------------------|
+|postal_code            |text              |null: false                    |
+|prefectures            |collection_select |null: false                    |
+|municipality           |text              |null: false                    |
+|address                |text              |null: false                    |
+|building_name          |text              |null: false                    |
+|phone_number           |text              |null: false                    |
+
+### Association
+- belongs_to :users
+- belongs_to :items
 
 
 ## comments
 
 |Column                 |Type           |Options                          |
 |-----------------------|---------------|---------------------------------|
-|userid                 |reference       |null: false, foreign_key: true |
-|itemsid                |reference       |null: false, foreign_key: true |
+|user                   |reference       |null: false, foreign_key: true |
+|items                  |reference       |null: false, foreign_key: true |
 |text                   |text            |null: false
 
 
