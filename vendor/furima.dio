@@ -1,0 +1,50 @@
+<mxfile host="65bd71144e" modified="2020-11-03T07:00:13.948Z" agent="5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.49.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" version="13.6.5" etag="Et2jwCHrboiepeHmRGdY">
+    <diagram id="fj7T1Qq5lwKm0fWL3Xl8" name="ページ1">
+        <mxGraphModel dx="300" dy="837" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="users" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="180" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;i&gt;nickname(string型,NOT NULL)&lt;br&gt;email(string型,NOT NULL)&lt;br&gt;password(&lt;/i&gt;&lt;i&gt;string型,NOT NULL)&lt;/i&gt;&lt;i&gt;&lt;br&gt;名前（全角）(text型,NOT NULL)&lt;br&gt;名前（カナ）&lt;/i&gt;&lt;i&gt;(text型,NOT NULL)&lt;/i&gt;&lt;i&gt;&lt;br&gt;生年月日&lt;/i&gt;&lt;i&gt;(text型,NOT NULL)&lt;/i&gt;&lt;i&gt;&lt;br&gt;&lt;/i&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="220" width="180" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;i&gt;items&lt;/i&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="180" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmany;startFill=0;" edge="1" parent="1" source="6">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="300" y="286.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=ERmany;startFill=0;" edge="1" parent="1" source="6" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="image(ActiveStorageで実装)&lt;br&gt;商品名(text型 NOT NULL)&lt;br&gt;商品説明(text型 NOTNULL)&lt;br&gt;商品状態(text型 NOTNULL)&lt;br&gt;配送料の負担(text型 NOTNULL)&lt;br&gt;発送元の地域(text型 NOTNULL)&lt;br&gt;発送までの日数(text型 NOTNULL)&lt;br&gt;購入価格(text型 NOTNULL)&lt;br&gt;userid (reference型)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="213" width="200" height="147" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=ERmany;startFill=0;" edge="1" parent="1" source="8" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=ERone;startFill=0;entryX=-0.005;entryY=0.859;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="8" target="6">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="430" y="332" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="transactions" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="55" y="450" width="290" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="クレジットカード情報（integer型 NOT NULL)&lt;br&gt;郵便番号&lt;i&gt;(text型,NOT NULL)&lt;/i&gt;&lt;br&gt;都道府県&lt;i&gt;(text型,NOT NULL)&lt;/i&gt;&lt;br&gt;市区町村&lt;i&gt;(text型,NOT NULL)&lt;/i&gt;&lt;br&gt;番地&lt;i&gt;(text型,NOT NULL)&lt;/i&gt;&lt;br&gt;建物名&lt;i&gt;(text型,NOT NULL)&lt;/i&gt;&lt;br&gt;電話番号&lt;i&gt;(text型,NOT NULL)&lt;/i&gt;&lt;br&gt;userid(reference型)&lt;br&gt;itemsid(reference型)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="55" y="500" width="290" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="comments" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="430" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="text(text型 NOT NULL)&lt;br&gt;userid(reference型)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="480" width="200" height="150" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
