@@ -30,7 +30,7 @@
 |shipping_fee_burden_id |integer          |null: false                    |
 |shipment_source_id     |integer          |null: false                    |
 |days_to_ship_id        |integer          |null: false                    |
-|price_id               |integer          |null: false                    |
+|price                  |integer          |null: false                    |
 |user                   |references       |null: false, foreign_key: true |
 
 ### Association
@@ -58,10 +58,10 @@
 |Column                 |Type              |Options                        |
 |-----------------------|------------------|-------------------------------|
 |postal_code            |string            |null: false                    |
-|prefectures_id         |integer           |null: false                    |
+|prefecture_id          |integer           |null: false                    |
 |municipality           |string            |null: false                    |
 |address                |string            |null: false                    |
-|building_name          |string            |null: false                    |
+|building_name          |string            |                               |
 |phone_number           |string            |null: false                    |
 |transaction            |references        |null: false, foreign_key: true |
 
