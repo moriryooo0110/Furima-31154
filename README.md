@@ -25,16 +25,16 @@
 |-----------------------|-----------------|-------------------------------|
 |product_name           |string           |null: false                    |
 |description_of_item    |text             |null: false                    |
-|category               |collection_select|null: false                    |
-|product_status         |collection_select|null: false                    |
-|shipping_fee_burden    |collection_select|null: false                    |
-|shipment_source        |collection_select|null: false                    |
-|days_to_ship           |collection_select|null: false                    |
+|category_id            |integer          |null: false                    |
+|product_status_id      |integer          |null: false                    |
+|shipping_fee_burden_id |integer          |null: false                    |
+|shipment_source_id     |integer          |null: false                    |
+|days_to_ship_id        |integer          |null: false                    |
 |price                  |string           |null: false                    |
-|user                   |reference        |null: false, foreign_key: true |
+|user                   |references       |null: false, foreign_key: true |
 
 ### Association
-- has_many :users
+- belongs_to :user
 - has_one  :transaction
 - has_many :comments
 
@@ -43,26 +43,27 @@
 
 |Column                 |Type              |Options                        |
 |-----------------------|------------------|-------------------------------|
-|user                   |reference         |null: false, foreign_key: true |
-|items                  |reference         |null: false, foreign_key: true |
+|user                   |references        |null: false, foreign_key: true |
+|items                  |references        |null: false, foreign_key: true |
 
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
+- has_one :addresses
+
 
 ## addresses
 
 |-----------------------|------------------|-------------------------------|
-|postal_code            |text              |null: false                    |
-|prefectures            |collection_select |null: false                    |
-|municipality           |text              |null: false                    |
-|address                |text              |null: false                    |
-|building_name          |text              |null: false                    |
-|phone_number           |text              |null: false                    |
+|postal_code            |string            |null: false                    |
+|prefectures_id         |integer           |null: false                    |
+|municipality           |string            |null: false                    |
+|address                |string            |null: false                    |
+|building_name          |string            |null: false                    |
+|phone_number           |string            |null: false                    |
 
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :transactions
 
 
 ## comments
