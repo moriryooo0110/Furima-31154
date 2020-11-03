@@ -45,7 +45,6 @@
 |-----------------------|------------------|-------------------------------|
 |user                   |references        |null: false, foreign_key: true |
 |items                  |references        |null: false, foreign_key: true |
-|transactions           |references        |null: false, foreign_key: true |
 
 
 ### Association
@@ -63,6 +62,8 @@
 |address                |string            |null: false                    |
 |building_name          |string            |null: false                    |
 |phone_number           |string            |null: false                    |
+|transactions           |references        |null: false, foreign_key: true |
+
 
 ### Association
 - belongs_to :transaction
