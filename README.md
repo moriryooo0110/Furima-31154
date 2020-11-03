@@ -45,15 +45,13 @@
 |-----------------------|------------------|-------------------------------|
 |user                   |references        |null: false, foreign_key: true |
 |items                  |references        |null: false, foreign_key: true |
-|municipality           |string            |null: false                    |
-|address                |string            |null: false                    |
-|building_name          |string            |null: false                    |
-|phone_number           |string            |null: false                    |
+|transactions           |references        |null: false, foreign_key: true |
+
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :addresses
+- has_one :address
 
 
 ## addresses
@@ -67,7 +65,7 @@
 |phone_number           |string            |null: false                    |
 
 ### Association
-- belongs_to :transactions
+- belongs_to :transaction
 
 
 ## comments
