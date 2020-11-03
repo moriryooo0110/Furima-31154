@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :transactions
+- has_many :item_purchases
 - has_many :comments
 
 
@@ -30,21 +30,21 @@
 |shipping_fee_burden_id |integer          |null: false                    |
 |shipment_source_id     |integer          |null: false                    |
 |days_to_ship_id        |integer          |null: false                    |
-|price                  |string           |null: false                    |
+|price_id               |integer          |null: false                    |
 |user                   |references       |null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_one  :transaction
+- has_one  :item_purchase
 - has_many :comments
 
 
-## transactions
+## item_purchases
 
 |Column                 |Type              |Options                        |
 |-----------------------|------------------|-------------------------------|
 |user                   |references        |null: false, foreign_key: true |
-|items                  |references        |null: false, foreign_key: true |
+|item                   |references        |null: false, foreign_key: true |
 
 
 ### Association
@@ -55,6 +55,7 @@
 
 ## addresses
 
+|Column                 |Type              |Options                        |
 |-----------------------|------------------|-------------------------------|
 |postal_code            |string            |null: false                    |
 |prefectures_id         |integer           |null: false                    |
@@ -62,11 +63,11 @@
 |address                |string            |null: false                    |
 |building_name          |string            |null: false                    |
 |phone_number           |string            |null: false                    |
-|transactions           |references        |null: false, foreign_key: true |
+|transaction            |references        |null: false, foreign_key: true |
 
 
 ### Association
-- belongs_to :transaction
+- belongs_to :item_purchase
 
 
 ## comments
@@ -74,7 +75,7 @@
 |Column                 |Type           |Options                          |
 |-----------------------|---------------|---------------------------------|
 |user                   |reference       |null: false, foreign_key: true |
-|items                  |reference       |null: false, foreign_key: true |
+|item                   |reference       |null: false, foreign_key: true |
 |text                   |text            |null: false
 
 
