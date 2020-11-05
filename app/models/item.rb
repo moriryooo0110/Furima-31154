@@ -13,15 +13,15 @@ class Item < ApplicationRecord
     validates :product_name
     validates :description_of_item
     validates :price
-    validates :content, unless: :wasattached?
+    validates :image
   end
 
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :days_to_ship_id
-    validates :product_status
-    validates :shipment_source
-    validates :shipping_fee_burden
+    validates :product_status_id
+    validates :shipment_source_id
+    validates :shipping_fee_burden_id
   end
 end
