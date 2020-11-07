@@ -1,11 +1,11 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
-  belongs_to :category
-  belongs_to :days_to_ship
-  belongs_to :product_status
-  belongs_to :shipment_source
-  belongs_to :shipping_fee_burden
+  belongs_to_active_hash :category
+  belongs_to_active_hash :days_to_ship
+  belongs_to_active_hash :product_status
+  belongs_to_active_hash :shipment_source
+  belongs_to_active_hash :shipping_fee_burden
   has_one_attached :image
 
   VALID_PRICEL_HALF =     /\A[0-9]+\z/
