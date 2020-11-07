@@ -6,10 +6,15 @@ RSpec.describe Item, type: :model do
      @item = FactoryBot.build(:item)
    end
 
+ describe '商品出品の新規登録' do
+  context '出品登録がうまくいくとき' do
    it "全ての項目が存在すれば登録出来る事" do
     expect(@item).to be_valid
+   end
   end
 
+
+  context '出品登録がうまくいかないとき' do
    it "商品画像を1枚つけることが必須であること" do
     @item.image = nil
     @item.valid?
@@ -113,7 +118,8 @@ RSpec.describe Item, type: :model do
      @item.valid?
      expect(@item.errors.full_messages).to include("Price is not a number")
    end
-
+  end
  end
+end
 
 
