@@ -8,17 +8,15 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_fee_burden
   has_one_attached :image
 
-  VALID_PRICEL_HALF =     /\A[0-9]+\z/
-
+  VALID_PRICEL_HALF = /\A[0-9]+\z/.freeze
 
   with_options presence: true do
     validates :product_name
     validates :description_of_item
-    validates :price ,format: { with:VALID_PRICEL_HALF}, numericality:{only_integer: true,
-    greater_than: 299, less_than: 9999999}
+    validates :price, format: { with: VALID_PRICEL_HALF }, numericality: { only_integer: true,
+                                                                           greater_than: 299, less_than: 9_999_999 }
     validates :image
   end
-
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
