@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     validates :product_name
     validates :description_of_item
     validates :price ,format: { with:VALID_PRICEL_HALF}, numericality:{only_integer: true,
-    greater_than: 300, less_than: 9999999}
+    greater_than: 299, less_than: 9999999}
     validates :image
   end
 
