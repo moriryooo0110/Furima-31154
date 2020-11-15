@@ -14,67 +14,65 @@ RSpec.describe UserOrder, type: :model do
     end
 
     context '商品の購入がうまくいかないとき' do
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @user_order.token = nil
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Token can't be blank")
-
-
       end
 
-      it "郵便番号が空では購入できないこと" do
+      it '郵便番号が空では購入できないこと' do
         @user_order.postal_code = nil
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Postal code can't be blank")
       end
 
-      it "郵便番号に-が無いとでは購入できないこと" do
-        @user_order.postal_code = 1234567
+      it '郵便番号に-が無いとでは購入できないこと' do
+        @user_order.postal_code = 1_234_567
         @user_order.valid?
-        expect(@user_order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@user_order.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
 
-      it "郵便番号が11桁以上だと購入できないこと" do
-        @user_order.postal_code = 123-456799
+      it '郵便番号が11桁以上だと購入できないこと' do
+        @user_order.postal_code = 123 - 456_799
         @user_order.valid?
-        expect(@user_order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@user_order.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
 
-      it "都道府県が空だと購入できないこと" do
+      it '都道府県が空だと購入できないこと' do
         @user_order.prefecture_id = nil
         @user_order.valid?
-        expect(@user_order.errors.full_messages).to include("Prefecture is not a number")
+        expect(@user_order.errors.full_messages).to include('Prefecture is not a number')
       end
 
-      it "都道府県選択時(--)を選択した場合購入できないこと" do
+      it '都道府県選択時(--)を選択した場合購入できないこと' do
         @user_order.prefecture_id = 1
         @user_order.valid?
-        expect(@user_order.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@user_order.errors.full_messages).to include('Prefecture must be other than 1')
       end
 
-      it "市町村区が空だと購入出来ないこと" do
+      it '市町村区が空だと購入出来ないこと' do
         @user_order.municipality = nil
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Municipality can't be blank")
       end
 
-      it "番地が空だと購入出来ないこと" do
+      it '番地が空だと購入出来ないこと' do
         @user_order.address = nil
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Address can't be blank")
       end
 
-      it "電話番号が空だと購入出来ないこと" do
+      it '電話番号が空だと購入出来ないこと' do
         @user_order.phone_number = nil
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Phone number can't be blank")
       end
 
-      it "電話番号が11桁では無いと購入出来ないこと" do
-        @user_order.phone_number = "0123456789101"
+      it '電話番号が11桁では無いと購入出来ないこと' do
+        @user_order.phone_number = '0123456789101'
         @user_order.valid?
-        expect(@user_order.errors.full_messages).to include("Phone number is invalid")
+        expect(@user_order.errors.full_messages).to include('Phone number is invalid')
+      end
     end
-   end
   end
 end

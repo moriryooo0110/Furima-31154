@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipment_source
   belongs_to_active_hash :shipping_fee_burden
   has_one_attached :image
-  has_one  :item_purchase
+  has_one :item_purchase
 
   VALID_PRICEL_HALF = /\A[0-9]+\z/.freeze
 
