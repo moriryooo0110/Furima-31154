@@ -11,6 +11,10 @@ RSpec.describe UserOrder, type: :model do
         @user_order.building_name = nil
         expect(@user_order).to be_valid
       end
+
+      it '全ての項目が存在すれば登録出来る事' do
+        expect(@user_order).to be_valid
+      end
     end
 
     context '商品の購入がうまくいかないとき' do
@@ -73,6 +77,13 @@ RSpec.describe UserOrder, type: :model do
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include('Phone number is invalid')
       end
+
+      it '電話番号に数字以外の項目が入ると保存出来ない事' do
+        @user_order.phone_number = 'ccccc0123456'
+        @user_order.valid?
+        expect(@user_order.errors.full_messages).to include('Phone number is invalid')
+      end
+
     end
   end
 end
