@@ -1,11 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, except: [:order]
+  before_action :set_item, only: [:ensure_correct_user, :index, :create]
   before_action :ensure_correct_user, only: [:index]
-  before_action :set_item, only: [:eensure_correct_user, :index, :create]
-
-  def ensure_correct_user
-    redirect_to items_index_path if !@item.item_purchase.nil? || current_user.id == @item.user_id
-  end
 
   def index
     @user_order = UserOrder.new
@@ -26,6 +21,10 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:user_order).permit(:postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :item_purchase_id).merge(token: params[:token], user_id: current_user.id, item_id: params[:item_id])
+  end
+
+  def ensure_correct_user
+    redirect_to items_index_path if !@item.item_purchase.nil? || current_user.id == @item.user_id
   end
 
   def set_item
