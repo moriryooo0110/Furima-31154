@@ -133,11 +133,11 @@
         <div class='item-img-content'>
           <%= link_to (image_tag item.image,class: "item-img"),item_path(item.id) %>
           <%# 商品が売れていればsold outを表示しましょう %>
-        <%# <% if current_user_id.transaction? %><%# ここは購入画面実装後に!!! %>
-          <%# <div class='sold-out'>
+         <% if item.item_purchase != nil %><%# ここは購入画面実装後に!!! %>
+            <div class='sold-out'>
             <span>Sold Out!!</span>
-          </div> %>
-        <%# <% end %> 
+          </div> 
+       <% end %>  
           <%# //商品が売れていればsold outを表示しましょう %>
         </div>
         <div class='item-info'>

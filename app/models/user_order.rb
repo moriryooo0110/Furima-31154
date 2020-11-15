@@ -4,10 +4,10 @@ class UserOrder
   attr_accessor :token,:postal_code,:prefecture_id,:municipality,:address,:building_name,:phone_number,:user_id,:item_purchase_id,:item_id
 
   with_options presence: true do
-    validates :postal_code
+    validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :municipality
     validates :address
-    validates :phone_number
+    validates :phone_number,format: {with:/\A[0-9]{11}\z/}
     validates :token
     end
   

@@ -1,4 +1,13 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, except: [:order]
+  before_action :ensure_correct_user, only:[:index]
+
+  def ensure_correct_user
+    @item = Item.find(params[:item_id])
+    if @item.item_purchase != nil || current_user.id == @item.user_id
+      redirect_to items_index_path
+     end
+   end
 
   def index
     @item = Item.find(params[:item_id])
