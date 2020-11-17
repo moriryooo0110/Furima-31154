@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
   end
 
   def ensure_correct_user
-    redirect_to items_index_path if @item.item_purchase.nil? || current_user.id == @item.user_id
+    redirect_to items_index_path if @item.item_purchase || current_user.id == @item.user_id
   end
 
   def set_item
