@@ -133,7 +133,7 @@
         <div class='item-img-content'>
           <%= link_to (image_tag item.image,class: "item-img"),item_path(item.id) %>
           <%# 商品が売れていればsold outを表示しましょう %>
-         <% if item.item_purchase != nil %><%# ここは購入画面実装後に!!! %>
+         <% if item.item_purchase != nil %>
             <div class='sold-out'>
             <span>Sold Out!!</span>
           </div> 
@@ -183,7 +183,7 @@
   <% end %>
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
-  <a href="#">
+ <a href="/items/new">
     <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
   </a>
 </div>
