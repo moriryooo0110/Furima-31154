@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+
   before_action :set_item, only: [:ensure_correct_user, :index, :create]
   before_action :ensure_correct_user, only: [:index]
 
@@ -24,7 +25,7 @@ class OrdersController < ApplicationController
   end
 
   def ensure_correct_user
-    redirect_to items_index_path if !@item.item_purchase.nil? || current_user.id == @item.user_id
+    redirect_to items_index_path if @item.item_purchase.nil? || current_user.id == @item.user_id
   end
 
   def set_item
