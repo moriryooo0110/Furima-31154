@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+  before_action :authenticate_user!, except: [:order]
   before_action :set_item, only: [:ensure_correct_user, :index, :create]
   before_action :ensure_correct_user, only: [:index]
 
